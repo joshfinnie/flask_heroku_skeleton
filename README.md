@@ -1,10 +1,13 @@
 Flask Heroku Skeleton
 =====================
 
+Getting the Base Code
+---------------------
+
 Clone this repo:
 
-    $ git clone git@github.com:bevenky/flask_heroku_skeleton.git
-    $ cd flask_heroku_skeleton
+    $ git clone git@github.com:joshfinnie/flask_heroku_skeleton.git name-of-app/
+    $ cd name-of-app
 
 Install Prerequisites
 
@@ -12,17 +15,23 @@ Install Prerequisites
     $ sudo pip install virtualenv
     $ sudo gem install foreman heroku (http://devcenter.heroku.com/articles/using-the-cli)
 
-Running Locally
---------------------
+Setting Application Up
+----------------------
 
-    $ virtualenv --no-site-packages python_env
-    $ source python_env/bin/activate
+    $ mv flask-app-name/ name-of-app/
+    $ perl -p -i -e "s/flask-app-name/name-of-app/g" `find . `
+
+Running Locally
+---------------
+
+    $ virtualenv env
+    $ source env/bin/activate
     $ pip install -r requirements.txt
     $ foreman start -p 8000  (-p is optional for port)
 
 
 Deploying to Heroku
----------------------
+-------------------
 
     $ heroku create <app_name> -s cedar
     $ git push heroku master
@@ -32,7 +41,7 @@ Deploying to Heroku
 
 
 Using Custom Domains
---------------
+--------------------
 
     $ heroku addons:add custom_domains
     $ heroku domains:add www.mydomainname.com
